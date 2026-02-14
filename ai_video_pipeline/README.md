@@ -70,6 +70,7 @@ ai_video_pipeline/
 │   ├── image_fetcher.py
 │   ├── video_builder.py
 │   ├── subtitle_generator.py
+|   ├── thumbnail_generator.py
 │   ├── moviepy_config.py
 │   └── utils.py
 │
