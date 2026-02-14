@@ -15,6 +15,7 @@ This system takes a single topic as input and automatically:
 - Builds a 16:9 video using MoviePy
 - Generates subtitles (.srt) and embeds them into the video
 - Creates SEO metadata (title, description, tags)
+- Generates YouTube-ready thumbnail with title overlay
 
 **Output:** A fully rendered YouTube-ready .mp4 file.
 
@@ -35,7 +36,9 @@ Video Assembly (MoviePy + FFmpeg)
     ↓
 Subtitle Embedding (ImageMagick)
     ↓
-Final MP4 + Metadata + SRT
+Thumbnail Generation (PIL)
+    ↓
+Final MP4 + Metadata + SRT + Thumbnail
 ```
 
 The system is modular and fault-tolerant with retry logic and model fallback support.
@@ -48,6 +51,7 @@ The system is modular and fault-tolerant with retry logic and model fallback sup
 - **MoviePy** – Video editing and composition
 - **FFmpeg** – Video encoding backend
 - **ImageMagick** – Subtitle rendering
+- **PIL (Pillow)** – Thumbnail generation
 - **Python 3.10+**
 
 ## 📂 Project Structure
@@ -173,6 +177,7 @@ After execution, the `output/` folder contains:
 - `video_topic_timestamp.mp4` – Final rendered video with embedded subtitles
 - `metadata.txt` – SEO title, description, and tags
 - `subtitles.srt` – Subtitle file (standalone)
+- `thumbnail.jpg` – YouTube-ready thumbnail (1280x720) with title overlay
 
 The video includes:
 - ✅ Embedded subtitles
@@ -188,6 +193,7 @@ The video includes:
 - 📐 **Dynamic 16:9 video formatting** – YouTube standard
 - 📝 **Automatic subtitle generation and embedding** – Synchronized with audio
 - 🔍 **SEO metadata automation** – Title, description, tags
+- 🎨 **Automatic thumbnail generation** – With topic text overlay
 - ⏰ **Unique timestamp-based filenames** – No overwrites
 
 ## ⚠ Challenges Faced
@@ -202,7 +208,6 @@ The video includes:
 - Paragraph-level scene synchronization
 - Background music integration
 - Automatic YouTube upload via API
-- Thumbnail generation
 - Improved subtitle timing accuracy
 - Multi-language support
 

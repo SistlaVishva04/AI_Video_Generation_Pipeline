@@ -1,0 +1,9 @@
+This project implements a fully automated AI-powered video generation pipeline that converts a single topic input into a YouTube-ready video. The system integrates Google Gemini for script and scene generation, Edge-TTS for neural voice narration, and the Pexels API for high-quality visual content. MoviePy, FFmpeg, and ImageMagick are used for video assembly, subtitle rendering, and final encoding.
+
+The architecture follows a modular design with separate components for script creation, voice synthesis, scene extraction, image retrieval, subtitle generation, and video composition. A retry mechanism with multi-model fallback was implemented to handle Gemini API overload scenarios, ensuring end-to-end reliability. Scene-based visual prompts improve contextual alignment between narration and visuals.
+
+The biggest challenge was managing external dependencies such as FFmpeg and ImageMagick while ensuring compatibility with MoviePy on Windows. Handling API rate limits and ensuring robust execution without manual intervention required careful error handling.
+
+
+
+Future improvements would include background music integration, paragraph-level visual synchronization, automated thumbnail generation, and direct YouTube upload using the YouTube Data API.

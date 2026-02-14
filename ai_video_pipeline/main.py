@@ -9,6 +9,7 @@ from modules.subtitle_generator import generate_srt
 from moviepy.editor import AudioFileClip
 from modules.video_builder import add_subtitles
 from modules.script_generator import generate_seo_metadata
+from modules.thumbnail_generator import generate_thumbnail
 
 def main():
     ensure_directories()
@@ -48,6 +49,8 @@ def main():
 
     print("Generating SEO metadata...")
     metadata = generate_seo_metadata(script)
+    thumbnail_path = generate_thumbnail(images[0], topic)
+    print(f"Thumbnail created at: {thumbnail_path}")
 
     with open("output/metadata.txt", "w", encoding="utf-8") as f:
         f.write(metadata)
